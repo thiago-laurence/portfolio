@@ -1,7 +1,14 @@
 export interface CardObject {
     id: number,
     title: string,
-    description: string,
+    description: string | "",
     image: string,
-    repository: string,
+    link: string,
+    items: Item[],
+}
+
+export interface Item {
+    id: number,
+    name: string,
+    image: string,
 }
