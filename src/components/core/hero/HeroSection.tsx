@@ -4,7 +4,15 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { Dock } from "@/components/dock/Dock";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  title: string;
+  description: string;
+  text: string;
+  imageUrl: string;
+  imageAlt: string;
+}
+
+export function HeroSection({ title, description, text, imageUrl, imageAlt }: HeroSectionProps) {
   return (
     <div className="relative mx-auto my-10 flex max-w-11/12 flex-col items-center justify-center px-4">
       {/* Left and right lines */}
@@ -23,7 +31,7 @@ export function HeroSection() {
         {/* Text Block */}
         <div className="w-full md:w-2/3 text-center md:text-left">
           <h1 className="relative z-10 text-xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
-            {"Launch your website in hours, not days"
+            {title
               .split(" ")
               .map((word, index) => (
                 <motion.span
@@ -48,9 +56,15 @@ export function HeroSection() {
             transition={{ duration: 0.3, delay: 0.8 }}
             className="relative z-10 mt-4 max-w-xl text-lg font-normal text-neutral-600 dark:text-neutral-400"
           >
-            With AI, you can launch your website in hours, not days. Try our best
-            in class, state of the art, cutting edge AI tools to get your website
-            up.
+            {description}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.8 }}
+            className="relative z-10 mt-4 max-w-xl text-lg font-normal text-neutral-600 dark:text-neutral-400"
+          >
+            {text}
           </motion.p>
         </div>
 
@@ -59,31 +73,18 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 1.2 }}
-          className="w-full md:w-1/2"
+          className="w-full md:w-1/2 justify-center flex items-center"
         >
-          <div className="overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 shadow-md">
+          <div className="overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 shadow-md w-fit">
             <Image
-              src="https://assets.aceternity.com/pro/aceternity-landing.webp"
-              alt="Landing page preview"
-              className="object-cover aspect-video"
-              width={800}
-              height={450}
+              src={imageUrl}
+              alt={imageAlt}
+              className="object-cover"
+              width={300}
+              height={300}
             />
           </div>
         </motion.div>
-      </div>
-      {/* Text Block */}
-      <div className="flex flex-row w-full md:px-5">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.8 }}
-          className="relative z-10 mt-4 max-w-xl text-lg font-normal text-neutral-600 dark:text-neutral-400"
-        >
-          With AI, you can launch your website in hours, not days. Try our best
-          in class, state of the art, cutting edge AI tools to get your website
-          up.
-        </motion.p>
       </div>
       <div className="flex flex-row mb-5 w-full">
         <Dock />

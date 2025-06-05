@@ -1,3 +1,5 @@
+'use client';
+
 import { Card } from "@/components/core/card/Card";
 import { CardObject } from "@/types/types";
 
@@ -6,7 +8,7 @@ type GalleryProps = {
 };
 
 export function Gallery({ data }: GalleryProps) {
-    
+
     return (
         <div className="container mx-auto p-8">
             <h1 className="mb-4 text-center text-3xl font-bold">

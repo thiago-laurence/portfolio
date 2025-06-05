@@ -2,13 +2,10 @@ import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
-  IconBrandX,
-  IconExchange,
+  IconBrandLinkedin,
+  IconFileCv,
   IconHome,
-  IconNewSection,
-  IconTerminal2,
 } from "@tabler/icons-react";
-import Image from "next/image";
 
 export function Dock() {
   const links = [
@@ -17,56 +14,29 @@ export function Dock() {
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/",
     },
 
     {
-      title: "Products",
+      title: "LinkedIn",
       icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://www.linkedin.com/in/thiago-laurence-828bb0256/",
     },
     {
-      title: "Components",
+      title: "CV",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconFileCv className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
-    },
-    {
-      title: "Aceternity UI",
-      icon: (
-        <Image
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      href: "https://drive.google.com/file/d/10aDPDCBFjMSkoNHtEF997QYk-nqDm7nl/view?usp=sharing",
     },
     {
       title: "GitHub",
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://github.com/thiago-laurence",
     },
   ];
   return (
