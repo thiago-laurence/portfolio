@@ -39,6 +39,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        port: '',
+        pathname: '/devicons/devicon/raw/v2.16.0/icons/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'velog.velcdn.com',
+        port: '',
+        pathname: '/images/junhok82/post/**',
+      },
     ],
   },
 };

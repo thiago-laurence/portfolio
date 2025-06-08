@@ -13,9 +13,10 @@ import { CardObject } from "@/types/types";
 type CardObjectProps = {
     cardObject: CardObject;
     className?: string;
+    message: string;
 }
 
-export function Card({ cardObject, className }: CardObjectProps) {
+export function Card({ cardObject, className, message }: CardObjectProps) {
   return (
     <CardContainer className={`inter-var ${className}`}>
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
@@ -46,14 +47,14 @@ export function Card({ cardObject, className }: CardObjectProps) {
             <CardItem
               translateZ={50}
             >
-                <Tooltip items={cardObject.items} animate={true} />
+              <Tooltip items={cardObject.items} animate={true} />
             </CardItem>
         </div>
         <div className="flex justify-end items-center">
           <CardItem
             translateZ={20}
             as="a"
-            href="#"
+            href={cardObject.link}
             target="__blank"
           >
             <ButtonTooltip>
@@ -74,7 +75,7 @@ export function Card({ cardObject, className }: CardObjectProps) {
                 </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Go to repository</p>
+                <p>{message}</p>
               </TooltipContent>
             </ButtonTooltip>
           </CardItem>

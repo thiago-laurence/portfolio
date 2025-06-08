@@ -53,6 +53,7 @@ const getGitHubRepositories = async (username: string): Promise<GitHubRepository
                 }
             })
         );
+        
         const reposWithLanguages: GitHubRepository[] = repos.map((repo) => ({
             id: repo.id,
             name: repo.name
@@ -64,9 +65,7 @@ const getGitHubRepositories = async (username: string): Promise<GitHubRepository
             html_url: repo.html_url,
             description: repo.description,
             languages_url: repo.languages_url,
-            languages: Object.keys(repo.languages || {}).map(lang =>
-            lang.charAt(0).toUpperCase() + lang.slice(1).toLowerCase()
-            ),
+            languages: repo.languages ? Object.keys(repo.languages).map(lang => lang.toUpperCase()) : [],
         }));
         
         return reposWithLanguages;

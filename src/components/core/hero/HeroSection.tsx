@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "motion/react";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconFileCv,
+  IconHome,
+} from "@tabler/icons-react";
 import Image from "next/image";
+import { Tooltip as ButtonTooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 import { Dock } from "@/components/dock/Dock";
 
 interface HeroSectionProps {
@@ -12,6 +20,38 @@ interface HeroSectionProps {
   imageAlt: string;
 }
 
+const icons = [
+    {
+      title: "Home",
+      icon: (
+        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/",
+    },
+
+    {
+      title: "LinkedIn",
+      icon: (
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://www.linkedin.com/in/thiago-laurence/",
+    },
+    {
+      title: "Resume",
+      icon: (
+        <IconFileCv className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://drive.google.com/file/d/10aDPDCBFjMSkoNHtEF997QYk-nqDm7nl/view?usp=sharing",
+    },
+    {
+      title: "GitHub",
+      icon: (
+        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://github.com/thiago-laurence",
+    },
+];
+
 export function HeroSection({ title, description, text, imageUrl, imageAlt }: HeroSectionProps) {
   return (
     <div className="relative mx-auto my-10 flex max-w-11/12 flex-col items-center justify-center px-4">
@@ -21,9 +61,6 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
       </div>
       <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
         <div className="absolute h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/80 dark:bg-neutral-800/80">
-        <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
       </div>
 
       {/* Content Row */}
@@ -66,6 +103,32 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
           >
             {text}
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 1 }}
+            className="relative z-10 mt-6 flex gap-4 justify-center md:justify-start"
+          >
+            {icons.map((icon, index) => (
+              <a href={icon.href} target="_blank" key={index}>
+                <ButtonTooltip>
+                  <TooltipTrigger>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="cursor-pointer size-14"
+                    >
+                      {icon.icon}
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{icon.title}</p>
+                  </TooltipContent>
+                </ButtonTooltip>
+              </a>
+            ))}
+          </motion.div>
+
         </div>
 
         {/* Image Block */}
@@ -87,7 +150,7 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
         </motion.div>
       </div>
       <div className="flex flex-row mb-5 w-full">
-        <Dock />
+        {/* <Dock icons={icons} /> */}
       </div>
     </div>
   );

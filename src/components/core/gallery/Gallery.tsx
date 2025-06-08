@@ -4,21 +4,21 @@ import { Card } from "@/components/core/card/Card";
 import { CardObject } from "@/types/types";
 
 type GalleryProps = {
+    id: string;
+    title: string;
+    description: string;
     data: CardObject[];
 };
 
-export function Gallery({ data }: GalleryProps) {
+export function Gallery({ id, data, title, description }: GalleryProps) {
 
     return (
-        <div className="container mx-auto p-8">
+        <div className="container mx-auto p-8" id={id}>
             <h1 className="mb-4 text-center text-3xl font-bold">
-                Check the navbar at the top of the container
+                {title}
             </h1>
             <p className="mb-10 text-center text-sm text-zinc-500">
-                For demo purpose we have kept the position as{" "}
-                <span className="font-medium">Sticky</span>. Keep in mind that this
-                component is <span className="font-medium">fixed</span> and will not
-                move when scrolling.
+                {description}
             </p>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
                 {
@@ -27,6 +27,7 @@ export function Gallery({ data }: GalleryProps) {
                             <Card
                                 cardObject={obj}
                                 className="w-full"
+                                message="Ir al repositorio"
                             />
                         </div>
                     ))
