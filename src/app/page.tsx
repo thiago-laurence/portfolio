@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { HeroSection } from "@/components/core/hero/HeroSection";
-import { TimeLine } from "@/components/core/timeline/TimeLine";
+import { TracingBeam } from "@/components/core/tracing-beam/TreacingBeam";
 import { Gallery } from "@/components/core/gallery/Gallery";
 import { Dock } from "@/components/dock/Dock";
 import githubService from "@/lib/github";
@@ -155,6 +155,81 @@ const IconsApis = [
   }
 ];
 
+
+const career = [
+  {
+    badge: "🖥️ Experiencia",
+    rows: [
+      {
+        title: "Vendedor",
+        description: "Grupo OpenSports | 2019 - 2025",
+        content: (
+          <>
+            <p>
+              Sit duis est minim proident non nisi velit non consectetur. Esse
+              adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
+              Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
+              incididunt enim magna id est qui sunt fugiat. Laboris do duis pariatur
+              fugiat Lorem aute sit ullamco. Qui deserunt non reprehenderit dolore
+              nisi velit exercitation Lorem qui do enim culpa. Aliqua eiusmod in
+              occaecat reprehenderit laborum nostrud fugiat voluptate do Lorem culpa
+              officia sint labore. Tempor consectetur excepteur ut fugiat veniam
+              commodo et labore dolore commodo pariatur.
+            </p>
+          </>
+        ),
+      },
+    ]
+  },
+  {
+    badge: "📚 Educación",
+    rows: [
+      {
+        title: "Técnico en programación",
+        description: "Escuela de Educación Técnica N° 1 | 2013 - 2019",
+        content: (
+          <>
+            <p className="mb-2">
+              Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
+              deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
+              non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
+              sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
+              velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
+              commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+            </p>
+            <div className="text-sm font-semibold">
+              <p>
+                Promedio 9.12
+              </p>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "Licenciatura en sistemas",
+        description: "Universidad Nacional de La Plata | 2020 - Actualidad",
+        content: (
+          <>
+            <p className="mb-2">
+              Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
+              deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
+              non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
+              sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
+              velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
+              commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+            </p>
+            <div className="text-sm font-semibold">
+              <p>
+                Promedio 8.5 - 89.18% de materias aprobadas
+              </p>
+            </div>
+          </>
+        ),
+      },
+    ]
+  }
+];
+
 export default async function Home() {
   const user =  await githubService.getGitHubUser();
   if (!user) return <p>User not found</p> ;
@@ -186,16 +261,21 @@ export default async function Home() {
     <>
       <HeroSection title={user.name} description={user.bio} text={user.location} imageUrl={user.avatar_url} imageAlt={user.name} />
       <div className="bg-gray-100 dark:bg-neutral-800 p-4 rounded-lg shadow-md mb-8">
-        <h2 className="text-2xl font-bold text-slate-700 mb-4 text-center">
+        <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-300 mb-4 text-center">
           Tecnologías utilizadas
         </h2>
-        <Dock icons={[...iconsLanguage, ...iconsFrameworks, ...iconsInfraestructure, ...iconsTesting, ...IconsApis]} />
+        <Dock icons={[...iconsLanguage, ...iconsFrameworks, ...iconsInfraestructure, ...iconsDB, ...iconsTesting, ...IconsApis]} />
       </div>
-      {/* <TimeLine /> */}
-      <Gallery data={data} id="projects" 
-        title="Mis proyectos" 
-        description="Una colección de mis proyectos personales y académicos desarrollados a lo largo de mi carrera." 
-      />
+      <TracingBeam items={career} id="career" />
+      <div className="dark:bg-neutral-800 p-4 rounded-lg">
+          <h1 className="mb-4 text-center text-3xl font-bold">
+              Mis proyectos
+          </h1>
+          <p className="text-center text-sm text-neutral-400">
+              Una colección de mis proyectos personales y académicos desarrollados a lo largo de mi carrera.
+          </p>
+      </div>
+      <Gallery data={data} id="projects" />
     </>
   );
 }

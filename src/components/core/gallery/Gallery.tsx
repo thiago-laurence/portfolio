@@ -5,21 +5,13 @@ import { CardObject } from "@/types/types";
 
 type GalleryProps = {
     id: string;
-    title: string;
-    description: string;
     data: CardObject[];
 };
 
-export function Gallery({ id, data, title, description }: GalleryProps) {
+export function Gallery({ id, data }: GalleryProps) {
 
     return (
-        <div className="container mx-auto p-8" id={id}>
-            <h1 className="mb-4 text-center text-3xl font-bold">
-                {title}
-            </h1>
-            <p className="mb-10 text-center text-sm text-zinc-500">
-                {description}
-            </p>
+        <div className="container mx-auto py-4" id={id}>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
                 {
                     data.map((obj) => (

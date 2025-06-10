@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import { Tooltip as ButtonTooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
-import { Dock } from "@/components/dock/Dock";
 
 interface HeroSectionProps {
   title: string;
@@ -24,7 +23,7 @@ const icons = [
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconHome className="h-full w-full text-green-600 dark:text-green-300" />
       ),
       href: "/",
     },
@@ -32,21 +31,21 @@ const icons = [
     {
       title: "LinkedIn",
       icon: (
-        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandLinkedin className="h-full w-full text-blue-600 dark:text-blue-300" />
       ),
       href: "https://www.linkedin.com/in/thiago-laurence/",
     },
     {
       title: "Resume",
       icon: (
-        <IconFileCv className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconFileCv className="h-full w-full text-red-600 dark:text-red-300" />
       ),
       href: "https://drive.google.com/file/d/10aDPDCBFjMSkoNHtEF997QYk-nqDm7nl/view?usp=sharing",
     },
     {
       title: "GitHub",
       icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandGithub className="h-full w-full text-purple-600 dark:text-purple-300" />
       ),
       href: "https://github.com/thiago-laurence",
     },
@@ -148,9 +147,6 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
             />
           </div>
         </motion.div>
-      </div>
-      <div className="flex flex-row mb-5 w-full">
-        {/* <Dock icons={icons} /> */}
       </div>
     </div>
   );
