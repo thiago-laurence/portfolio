@@ -9,8 +9,8 @@ interface TracingBeamProps {
     items: {
         badge: string;
         rows: {
-            title: string;
-            description: string;
+            title?: string;
+            description?: string;
             content: React.ReactNode;
             image?: string;
         }[];
@@ -30,31 +30,35 @@ export function TracingBeam({ items, id }: TracingBeamProps) {
             </h2>
             {item.rows.map((rowItem, rowIndex) => (
                 <div key={`row-${rowIndex}`} className="hover:bg-accent rounded-lg p-4 transition-colors">
-                    <div className="my-4">
-                        <p className="text-xl font-bold">
-                            {rowItem.title}
-                        </p>
-                        <p className="text-lg text-muted-foreground font-semibold">
-                            {rowItem.description}
-                        </p>
+                    <div>
+                        {rowItem.title && (
+                          <p className="text-xl font-bold">
+                              {rowItem.title}
+                          </p>
+                        )}
+                        {rowItem.description && (
+                          <p className="text-lg text-muted-foreground font-semibold">
+                              {rowItem.description}
+                          </p>
+                        )}
                     </div>
 
                     <div className="text-sm prose prose-sm dark:prose-invert">
-                    {rowItem?.image && (
-                        <Image
-                            key={`image-${index}`}
-                            src={rowItem.image}
-                            alt="blog thumbnail"
-                            height="1000"
-                            width="1000"
-                            className="rounded-lg mb-10 object-cover"
-                        />
-                    )}
-                    <div className="text-neutral-600 dark:text-neutral-400">
-                      {rowItem.content}
+                      {rowItem?.image && (
+                          <Image
+                              key={`image-${index}`}
+                              src={rowItem.image}
+                              alt="blog thumbnail"
+                              height="1000"
+                              width="1000"
+                              className="rounded-lg mb-10 object-cover"
+                          />
+                      )}
+                      <div className="text-neutral-600 dark:text-neutral-400 pt-2">
+                        {rowItem.content}
+                      </div>
                     </div>
-                </div>
-            </div>
+              </div>
             ))}
           </div>
         ))}

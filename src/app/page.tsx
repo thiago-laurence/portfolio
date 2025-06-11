@@ -167,6 +167,20 @@ const IconsApis = [
 ];
 const career = [
   {
+    badge: "🙋🏻 Acerca de mi",
+    rows: [
+      {
+        content: (
+          <>
+            <p>
+              Soy una persona que le apasiona la creatividad para la resolución de problemas de forma efectiva y eficiente en cualquier tipo de situación. Me encuentro buscando nuevos desafíos que me permitan demostrar y mejorar mis capacidades profesionales.
+            </p>
+          </>
+        ),
+      },
+    ]
+  },
+  {
     badge: "🖥️ Experiencia",
     rows: [
       {
@@ -195,7 +209,7 @@ const career = [
             </p>
             <div className="text-sm font-semibold">
               <p>
-                Promedio 9.12
+                Promedio 9.26
               </p>
             </div>
           </>
@@ -219,6 +233,12 @@ const career = [
       },
     ]
   }
+];
+const photos = [
+  {
+    src: "/profile-pic.jpeg",
+    alt: "Profile picture"
+  },
 ];
 
 export default async function Home() {
@@ -250,7 +270,7 @@ export default async function Home() {
   
   return (
     <>
-      <HeroSection title={user.name} description={user.bio} text={`📍 ${user.location}`} imageUrl={user.avatar_url} imageAlt={user.name} />
+      <HeroSection title={user.name} description={user.bio} text={`📍 ${user.location}`} photos={[...photos, { src: user.avatar_url, alt: user.name }]} />
       <div className="bg-gray-100 dark:bg-neutral-800 p-4 rounded-lg shadow-md mb-8">
         <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-300 mb-4 text-center">
           Tecnologías utilizadas

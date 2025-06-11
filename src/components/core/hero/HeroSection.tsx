@@ -7,16 +7,18 @@ import {
   IconFileCv,
   IconHome,
 } from "@tabler/icons-react";
-import Image from "next/image";
 import { Tooltip as ButtonTooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import { AnimatedGallery } from "../gallery/AnimatedGallery";
 
 interface HeroSectionProps {
   title: string;
   description: string;
   text: string;
-  imageUrl: string;
-  imageAlt: string;
+  photos: {
+    src: string;
+    alt: string;
+  }[];
 }
 
 const icons = [
@@ -51,7 +53,7 @@ const icons = [
     },
 ];
 
-export function HeroSection({ title, description, text, imageUrl, imageAlt }: HeroSectionProps) {
+export function HeroSection({ title, description, text, photos }: HeroSectionProps) {
   return (
     <div className="relative mx-auto my-10 flex max-w-11/12 flex-col items-center justify-center px-4">
       {/* Left and right lines */}
@@ -65,7 +67,7 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
       {/* Content Row */}
       <div className="flex flex-col md:flex-row items-center justify-between w-full pt-10 md:pt-20 md:px-5 gap-10">
         {/* Text Block */}
-        <div className="w-full md:w-2/3 text-center md:text-left">
+        <div className="w-full lg:w-2/3 text-center md:text-left">
           <h1 className="relative z-10 text-xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
             {title
               .split(" ")
@@ -90,7 +92,7 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.8 }}
-            className="relative z-10 mt-4 max-w-xl text-lg font-normal text-neutral-600 dark:text-neutral-400"
+            className="relative z-10 mt-4 text-lg font-normal text-neutral-600 dark:text-neutral-400"
           >
             {description}
           </motion.p>
@@ -98,7 +100,7 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.8 }}
-            className="relative z-10 mt-4 max-w-xl text-base italic font-normal text-neutral-600 dark:text-neutral-400"
+            className="relative z-10 mt-4 text-base italic font-normal text-neutral-600 dark:text-neutral-400"
           >
             {text}
           </motion.p>
@@ -135,16 +137,10 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 1.2 }}
-          className="w-full md:w-1/2 justify-center flex items-center"
+          className="w-full lg:w-1/2 justify-center flex items-center"
         >
-          <div className="overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 shadow-md w-fit">
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              className="object-cover"
-              width={300}
-              height={300}
-            />
+          <div className="overflow-hidden w-full">
+            <AnimatedGallery photos={photos} />
           </div>
         </motion.div>
       </div>
