@@ -34,7 +34,7 @@ export function TracingBeam({ items, id }: TracingBeamProps) {
                         <p className="text-xl font-bold">
                             {rowItem.title}
                         </p>
-                        <p className="text-lg text-muted-foreground">
+                        <p className="text-lg text-muted-foreground font-semibold">
                             {rowItem.description}
                         </p>
                     </div>
@@ -50,7 +50,7 @@ export function TracingBeam({ items, id }: TracingBeamProps) {
                             className="rounded-lg mb-10 object-cover"
                         />
                     )}
-                    <div className="dark:text-slate-300">
+                    <div className="text-neutral-600 dark:text-neutral-400">
                       {rowItem.content}
                     </div>
                 </div>

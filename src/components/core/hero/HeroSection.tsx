@@ -98,7 +98,7 @@ export function HeroSection({ title, description, text, imageUrl, imageAlt }: He
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.8 }}
-            className="relative z-10 mt-4 max-w-xl text-lg font-normal text-neutral-600 dark:text-neutral-400"
+            className="relative z-10 mt-4 max-w-xl text-base italic font-normal text-neutral-600 dark:text-neutral-400"
           >
             {text}
           </motion.p>

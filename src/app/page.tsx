@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/core/hero/HeroSection";
 import { TracingBeam } from "@/components/core/tracing-beam/TreacingBeam";
 import { Gallery } from "@/components/core/gallery/Gallery";
 import { Dock } from "@/components/dock/Dock";
+import Footer from "@/components/core/footer/Footer";
 import githubService from "@/lib/github";
 import { CardObject } from "@/types/types";
 import { GitHubLanguage } from "@/types/github";
@@ -56,6 +57,11 @@ const iconsFrameworks = [
     href: "https://tailwindcss.com/"
   },
   {
+    title: "NextJS",
+    icon: (<Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/nextjs/nextjs-original.svg" height="40" width="40" alt="nextjs logo" />),
+    href: "https://nextjs.org/"
+  },
+  {
     title: "NodeJS",
     icon: (<Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/nodejs/nodejs-original.svg" height="40" width="40" alt="nodejs logo" />),
     href: "https://nodejs.org/"
@@ -101,6 +107,11 @@ const iconsDB = [
     title: "PostgreSQL",
     icon: (<Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/postgresql/postgresql-original.svg" height="40" width="40" alt="mysql logo" />),
     href: "https://postgresql.org/"
+  },
+  {
+    title: "MySQL",
+    icon: (<Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/mysql/mysql-original.svg" height="40" width="40" alt="mysql logo" />),
+    href: "https://mysql.com/"
   },
   {
     title: "MongoDB",
@@ -154,8 +165,6 @@ const IconsApis = [
     href: "https://graphql.org/"
   }
 ];
-
-
 const career = [
   {
     badge: "🖥️ Experiencia",
@@ -166,15 +175,7 @@ const career = [
         content: (
           <>
             <p>
-              Sit duis est minim proident non nisi velit non consectetur. Esse
-              adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
-              Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
-              incididunt enim magna id est qui sunt fugiat. Laboris do duis pariatur
-              fugiat Lorem aute sit ullamco. Qui deserunt non reprehenderit dolore
-              nisi velit exercitation Lorem qui do enim culpa. Aliqua eiusmod in
-              occaecat reprehenderit laborum nostrud fugiat voluptate do Lorem culpa
-              officia sint labore. Tempor consectetur excepteur ut fugiat veniam
-              commodo et labore dolore commodo pariatur.
+              Brindé atención personalizada al cliente en indumentaria y accesorios deportivos, colaborando activamente para alcanzar objetivos de ventas diarios, semanales y mensuales. Mantuve una comunicación efectiva con colegas y supervisores, fomentando un ambiente de trabajo dinámico y orientado a resultados. Desarrollé habilidades de resolución de problemas, empatía y gestión del tiempo en entornos de alta demanda.
             </p>
           </>
         ),
@@ -186,16 +187,11 @@ const career = [
     rows: [
       {
         title: "Técnico en programación",
-        description: "Escuela de Educación Técnica N° 1 | 2013 - 2019",
+        description: "Escuela de Educación Secundaria Técnica N° 1 | 2013 - 2019",
         content: (
           <>
             <p className="mb-2">
-              Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-              deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-              non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-              sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-              velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-              commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+              Finalicé mis estudios secundarios técnicos con orientación en Programación, los cuales me permitieron adquirir una sólida base en resolución de problemas, lógica computacional, desarrollo de software y fundamentos de bases de datos. Esta formación fue el primer paso que despertó en mi la vocación por la tecnología y su uso para la resolución de problemas.
             </p>
             <div className="text-sm font-semibold">
               <p>
@@ -211,12 +207,7 @@ const career = [
         content: (
           <>
             <p className="mb-2">
-              Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-              deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-              non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-              sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-              velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-              commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+              Actualmente me encuentro finalizando mis estudios universitarios en Ciencias de la computación, una etapa que ha fortalecido mis habilidades técnicas y analíticas en áreas como desarrollo de software, arquitectura de sistemas, bases de datos y gestión de proyectos. Esta formación me ha permitido lograr una visión más integral, amplia y estratégica del rol de la tecnología en las organizaciones.
             </p>
             <div className="text-sm font-semibold">
               <p>
@@ -259,7 +250,7 @@ export default async function Home() {
   
   return (
     <>
-      <HeroSection title={user.name} description={user.bio} text={user.location} imageUrl={user.avatar_url} imageAlt={user.name} />
+      <HeroSection title={user.name} description={user.bio} text={`📍 ${user.location}`} imageUrl={user.avatar_url} imageAlt={user.name} />
       <div className="bg-gray-100 dark:bg-neutral-800 p-4 rounded-lg shadow-md mb-8">
         <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-300 mb-4 text-center">
           Tecnologías utilizadas
@@ -271,11 +262,12 @@ export default async function Home() {
           <h1 className="mb-4 text-center text-3xl font-bold">
               Mis proyectos
           </h1>
-          <p className="text-center text-sm text-neutral-400">
+          <p className="text-center text-sm text-neutral-600 dark:text-neutral-400">
               Una colección de mis proyectos personales y académicos desarrollados a lo largo de mi carrera.
           </p>
       </div>
       <Gallery data={data} id="projects" />
+      <Footer />
     </>
   );
 }
