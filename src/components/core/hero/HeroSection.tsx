@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedGallery } from "../gallery/AnimatedGallery";
 
 interface HeroSectionProps {
+  id: string;
   title: string;
   description: string;
   text: string;
@@ -53,9 +54,9 @@ const icons = [
     },
 ];
 
-export function HeroSection({ title, description, text, photos }: HeroSectionProps) {
+export function HeroSection({ id, title, description, text, photos }: HeroSectionProps) {
   return (
-    <div className="relative mx-auto my-10 flex max-w-11/12 flex-col items-center justify-center px-4">
+    <div className="relative mx-auto my-10 flex max-w-11/12 flex-col items-center justify-center px-4" id={id}>
       {/* Left and right lines */}
       <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
         <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />

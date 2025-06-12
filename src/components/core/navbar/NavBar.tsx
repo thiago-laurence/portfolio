@@ -17,7 +17,7 @@ export function NavBar() {
   const navItems = [
     {
       name: "Perfil",
-      link: "/profile",
+      link: "#profile",
     },
     {
       name: "Proyectos",

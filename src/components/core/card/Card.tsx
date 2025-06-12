@@ -46,36 +46,34 @@ export function Card({ cardObject, className, message }: CardObjectProps) {
             loading="lazy"
           />
         </CardItem>
-        <div className="flex justify-center my-5">
+        <div className="flex justify-between mt-5">
             <CardItem
               translateZ={50}
             >
               <Tooltip items={cardObject.items} animate={true} />
             </CardItem>
-        </div>
-        <div className="flex justify-end items-center">
-          <CardItem
-            translateZ={20}
-            as="a"
-            href={cardObject.link}
-            target="__blank"
-          >
-            <ButtonTooltip>
-              <TooltipTrigger>
-                <div>
-                  <Button asChild
-                    variant="outline"
-                    className="cursor-pointer p-4 hover:bg-accent"
-                  >
-                    <IconBrandGithub className="h-full w-full text-black dark:text-white" />
-                  </Button>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{message}</p>
-              </TooltipContent>
-            </ButtonTooltip>
-          </CardItem>
+            <CardItem
+              translateZ={20}
+              as="a"
+              href={cardObject.link}
+              target="__blank"
+            >
+              <ButtonTooltip>
+                <TooltipTrigger>
+                  <div>
+                    <Button asChild
+                      variant="outline"
+                      className="cursor-pointer p-4 hover:bg-accent"
+                    >
+                      <IconBrandGithub className="h-full w-full text-black dark:text-white" />
+                    </Button>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{message}</p>
+                </TooltipContent>
+              </ButtonTooltip>
+            </CardItem>
         </div>
       </CardBody>
     </CardContainer>

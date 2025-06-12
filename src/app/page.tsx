@@ -1,8 +1,11 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import { HeroSection } from "@/components/core/hero/HeroSection";
 import { TracingBeam } from "@/components/core/tracing-beam/TreacingBeam";
 import { Gallery } from "@/components/core/gallery/Gallery";
-import { Dock } from "@/components/dock/Dock";
+import { Dock } from "@/components/core/dock/Dock";
+import { CardSkeleton } from "@/components/core/skeleton/CardSkeleton";
+import { Loader } from "@/components/core/utils/Loader";
 import Footer from "@/components/core/footer/Footer";
 import githubService from "@/lib/github";
 import { CardObject } from "@/types/types";
@@ -270,12 +273,14 @@ export default async function Home() {
   
   return (
     <>
-      <HeroSection title={user.name} description={user.bio} text={`📍 ${user.location}`} photos={[...photos, { src: user.avatar_url, alt: user.name }]} />
+      <HeroSection title={user.name} description={user.bio} text={`📍 ${user.location}`} photos={[...photos, { src: user.avatar_url, alt: user.name }]} id="profile" />
       <div className="bg-gray-100 dark:bg-neutral-800 p-4 rounded-lg shadow-md mb-8">
         <h2 className="text-2xl font-bold text-slate-700 dark:text-slate-300 mb-4 text-center">
           Tecnologías utilizadas
         </h2>
-        <Dock icons={[...iconsLanguage, ...iconsFrameworks, ...iconsInfraestructure, ...iconsDB, ...iconsTesting, ...IconsApis]} />
+        <Suspense fallback={<Loader />}>
+          <Dock icons={[...iconsLanguage, ...iconsFrameworks, ...iconsInfraestructure, ...iconsDB, ...iconsTesting, ...IconsApis]} />
+        </Suspense>
       </div>
       <TracingBeam items={career} id="career" />
       <div className="dark:bg-neutral-800 p-4 rounded-lg">
@@ -286,7 +291,9 @@ export default async function Home() {
               Una colección de mis proyectos personales y académicos desarrollados a lo largo de mi carrera.
           </p>
       </div>
-      <Gallery data={data} id="projects" />
+      <Suspense fallback={<CardSkeleton />}>
+        <Gallery data={data} id="projects" />
+      </Suspense>
       <Footer />
     </>
   );
