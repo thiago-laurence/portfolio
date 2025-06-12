@@ -5,4 +5,4 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 };
 
-export const getBasePath = () => (process.env.NEXT_PUBLIC_BASE_PATH ?? '');
+export const getBasePath = () => (process.env.BASE_PATH ?? "");
