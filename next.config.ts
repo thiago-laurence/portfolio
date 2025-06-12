@@ -5,7 +5,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   basePath: isProd ? '/portfolio' : '',
   assetPrefix: isProd ? '/portfolio/' : '',
-  output: "export",
   images: {
     unoptimized: true,
     remotePatterns: [
