@@ -44,6 +44,7 @@ export function Card({ cardObject, className, message }: CardObjectProps) {
             className="w-full object-cover rounded-xl group-hover/card:shadow-xl"
             alt={cardObject.title}
             loading="lazy"
+            errorImage="/onerror-repo.svg"
           />
         </CardItem>
         <div className="flex justify-between mt-5">

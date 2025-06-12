@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Link from "next/link";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -112,7 +113,7 @@ export function HeroSection({ id, title, description, text, photos }: HeroSectio
             className="relative z-10 mt-6 flex gap-4 justify-center md:justify-start"
           >
             {icons.map((icon, index) => (
-              <a href={icon.href} target="_blank" key={index}>
+              <Link href={icon.href} target="_blank" key={index}>
                 <ButtonTooltip>
                   <TooltipTrigger>
                     <Button
@@ -127,7 +128,7 @@ export function HeroSection({ id, title, description, text, photos }: HeroSectio
                     <p>{icon.title}</p>
                   </TooltipContent>
                 </ButtonTooltip>
-              </a>
+              </Link>
             ))}
           </motion.div>
 

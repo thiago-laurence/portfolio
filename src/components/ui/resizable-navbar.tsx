@@ -243,6 +243,7 @@ export const NavbarLogo = () => {
         alt="nav-logo"
         width={40}
         height={40}
+        priority={true}
       />
       <span className="font-medium text-black dark:text-white">TL</span>
     </Link>
