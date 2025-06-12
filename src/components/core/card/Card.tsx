@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import AppImage from "@/components/utils/AppImage";
 import {
   IconBrandGithub
 } from "@tabler/icons-react";
@@ -37,7 +37,7 @@ export function Card({ cardObject, className, message }: CardObjectProps) {
             {cardObject.description}
         </CardItem>
         <CardItem translateZ="50" className="w-full mt-4">
-          <Image
+          <AppImage
             src={cardObject.image}
             height="1000"
             width="1000"

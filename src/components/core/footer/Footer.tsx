@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import AppImage from "@/components/utils/AppImage";
 
 export default function Footer() {
   return (
@@ -15,11 +15,11 @@ export default function Footer() {
                     Developed by
                 </p>
                 <span className="sr-only">Typescript</span>
-                <Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/typescript/typescript-original.svg" height="24" width="24" alt="typescript logo" />
+                <AppImage src="https://github.com/devicons/devicon/raw/v2.16.0/icons/typescript/typescript-original.svg" height="24" width="24" alt="typescript logo" />
                 <span className="sr-only">NextJS</span>
-                <Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/nextjs/nextjs-original.svg" height="24" width="24" alt="nextjs logo" />
+                <AppImage src="https://github.com/devicons/devicon/raw/v2.16.0/icons/nextjs/nextjs-original.svg" height="24" width="24" alt="nextjs logo" />
                 <span className="sr-only">React</span>
-                <Image src="https://github.com/devicons/devicon/raw/v2.16.0/icons/react/react-original.svg" height="24" width="24" alt="react logo" />
+                <AppImage src="https://github.com/devicons/devicon/raw/v2.16.0/icons/react/react-original.svg" height="24" width="24" alt="react logo" />
             </div>
         </div>
     </section>

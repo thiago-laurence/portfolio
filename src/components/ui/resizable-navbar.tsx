@@ -9,9 +9,8 @@ import {
 } from "motion/react";
 
 import React, { useRef, useState } from "react";
-import Image from "next/image";
+import AppImage from "@/components/utils/AppImage";
 import Link from "next/link";
-
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -197,6 +196,7 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onClose,
 }: MobileNavMenuProps) => {
   return (
@@ -238,9 +238,9 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <Image
-        src="/google-dev.png"
-        alt="logo"
+      <AppImage
+        src='/google-dev.svg'
+        alt="nav-logo"
         width={40}
         height={40}
       />

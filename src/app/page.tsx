@@ -5,7 +5,7 @@ import { TracingBeam } from "@/components/core/tracing-beam/TreacingBeam";
 import { Gallery } from "@/components/core/gallery/Gallery";
 import { Dock } from "@/components/core/dock/Dock";
 import { CardSkeleton } from "@/components/core/skeleton/CardSkeleton";
-import { Loader } from "@/components/core/utils/Loader";
+import { Loader } from "@/components/utils/Loader";
 import Footer from "@/components/core/footer/Footer";
 import githubService from "@/lib/github";
 import { CardObject } from "@/types/types";
@@ -239,7 +239,7 @@ const career = [
 ];
 const photos = [
   {
-    src: "/profile-pic.jpeg",
+    src: "/profile-pic.svg",
     alt: "Profile picture"
   },
 ];

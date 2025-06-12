@@ -8,7 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
-import Image from "next/image";
+import AppImage from "@/components/utils/AppImage";
 import { Item } from "@/types/types";
 
 export const AnimatedTooltip = ({
@@ -31,6 +31,7 @@ export const AnimatedTooltip = ({
     useTransform(x, [-100, 100], [-50, 50]),
     springConfig,
   );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleMouseMove = (event: any) => {
     const halfWidth = event.target.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
@@ -38,7 +39,9 @@ export const AnimatedTooltip = ({
 
   return (
     <>
-      {items.map((item, idx) => (
+      {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        items.map((item, idx) => (
         <div
           className="group relative -mr-4"
           key={item.name}
@@ -77,7 +80,7 @@ export const AnimatedTooltip = ({
               )}
             </AnimatePresence>
           }
-          <Image
+          <AppImage
             onMouseMove={handleMouseMove}
             height={100}
             width={100}

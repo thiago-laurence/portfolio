@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
+import AppImage from "@/components/utils/AppImage";
 
 import { useEffect, useState } from "react";
 
@@ -36,6 +36,7 @@ export const AnimatedTestimonials = ({
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoplay]);
 
   const fixedRotations = useMemo(() => testimonials.map((_, i) => -5 + i * 2), [testimonials])
@@ -77,7 +78,7 @@ export const AnimatedTestimonials = ({
                     }}
                     className="absolute inset-0 origin-bottom"
                   >
-                    <Image
+                    <AppImage
                       src={testimonial.src}
                       alt={testimonial.alt}
                       width={500}

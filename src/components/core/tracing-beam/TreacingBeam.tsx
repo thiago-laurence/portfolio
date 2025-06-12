@@ -2,8 +2,7 @@
 import React from "react";
 
 import { TracingBeam as  TracingBeamComponent } from "@/components/ui/tracing-beam";
-import Image from "next/image";
-
+import AppImage from "@/components/utils/AppImage";
 interface TracingBeamProps {
     id: string,
     items: {
@@ -45,7 +44,7 @@ export function TracingBeam({ items, id }: TracingBeamProps) {
 
                     <div className="text-sm prose prose-sm dark:prose-invert">
                       {rowItem?.image && (
-                          <Image
+                          <AppImage
                               key={`image-${index}`}
                               src={rowItem.image}
                               alt="blog thumbnail"
