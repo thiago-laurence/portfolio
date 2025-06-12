@@ -1,5 +1,5 @@
 "use client";
-
+import { useMemo } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
@@ -38,9 +38,8 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  const fixedRotations = useMemo(() => testimonials.map((_, i) => -5 + i * 2), [testimonials])
+
   return (
     <div className="mx-auto max-w-sm px-4 py-8 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20">
@@ -49,18 +48,18 @@ export const AnimatedTestimonials = ({
               <AnimatePresence>
                 {testimonials.map((testimonial, index) => (
                   <motion.div
-                    key={testimonial.src}
+                    key={`testimonial-${index}`}
                     initial={{
                       opacity: 0,
                       scale: 0.9,
                       z: -100,
-                      rotate: randomRotateY(),
+                      rotate: fixedRotations[index],
                     }}
                     animate={{
                       opacity: isActive(index) ? 1 : 0.7,
                       scale: isActive(index) ? 1 : 0.95,
                       z: isActive(index) ? 0 : -100,
-                      rotate: isActive(index) ? 0 : randomRotateY(),
+                      rotate: isActive(index) ? 0 : fixedRotations[index],
                       zIndex: isActive(index)
                         ? 40
                         : testimonials.length + 2 - index,
@@ -70,7 +69,7 @@ export const AnimatedTestimonials = ({
                       opacity: 0,
                       scale: 0.9,
                       z: 100,
-                      rotate: randomRotateY(),
+                      rotate: fixedRotations[index],
                     }}
                     transition={{
                       duration: 0.4,
