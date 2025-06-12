@@ -1,4 +1,4 @@
-import AppImage from "@/components/utils/AppImage";
+import AppImage from "@/components/core/utils/AppImage";
 
 export default function Footer() {
   return (

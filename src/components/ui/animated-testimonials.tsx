@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
-import AppImage from "@/components/utils/AppImage";
+import AppImage from "@/components/core/utils/AppImage";
 
 import { useEffect, useState } from "react";
 

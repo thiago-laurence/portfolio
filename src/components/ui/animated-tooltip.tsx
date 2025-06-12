@@ -8,7 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
-import AppImage from "@/components/utils/AppImage";
+import AppImage from "@/components/core/utils/AppImage";
 import { Item } from "@/types/types";
 
 export const AnimatedTooltip = ({

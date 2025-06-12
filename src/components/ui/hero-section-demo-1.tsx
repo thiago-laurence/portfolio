@@ -1,5 +1,5 @@
 "use client";
-import AppImage from "@/components/utils/AppImage";
+import AppImage from "@/components/core/utils/AppImage";
 
 import { motion } from "motion/react";
 

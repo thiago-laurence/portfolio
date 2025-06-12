@@ -9,7 +9,7 @@ import {
 } from "@tabler/icons-react";
 import { Tooltip as ButtonTooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
-import { AnimatedGallery } from "../gallery/AnimatedGallery";
+import { AnimatedGallery } from "@/components/core/gallery/AnimatedGallery";
 
 interface HeroSectionProps {
   id: string;

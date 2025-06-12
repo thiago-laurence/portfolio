@@ -2,7 +2,7 @@
 import React from "react";
 
 import { TracingBeam as  TracingBeamComponent } from "@/components/ui/tracing-beam";
-import AppImage from "@/components/utils/AppImage";
+import AppImage from "@/components/core/utils/AppImage";
 interface TracingBeamProps {
     id: string,
     items: {

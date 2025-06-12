@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import AppImage from "@/components/utils/AppImage";
+import AppImage from "@/components/core/utils/AppImage";
 import {
   IconBrandGithub
 } from "@tabler/icons-react";
