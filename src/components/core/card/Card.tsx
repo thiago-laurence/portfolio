@@ -39,12 +39,14 @@ export function Card({ cardObject, className, message }: CardObjectProps) {
         <CardItem translateZ="50" className="w-full mt-4">
           <AppImage
             src={cardObject.image}
-            height="1000"
-            width="1000"
+            height="600"
+            width="400"
             className="w-full object-cover rounded-xl group-hover/card:shadow-xl"
             alt={cardObject.title}
             loading="lazy"
-            errorImage="/onerror-repo.svg"
+            placeholder="blur"
+            blurDataURL="/onerror-repo.svg"
+            fallbackSrc="/onerror-repo.svg"
           />
         </CardItem>
         <div className="flex justify-between mt-5">

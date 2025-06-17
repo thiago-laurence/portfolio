@@ -19,6 +19,13 @@ export interface GitHubRepository {
   languages: string[];
 }
 
+export interface GitHubRepositories{
+  repositories: GitHubRepository[];
+  currentPage: number;
+  prevPage: string | null;
+  nextPage: string | null;
+}
+
 export enum GitHubLanguage {
   JAVASCRIPT = "javascript",
   TYPESCRIPT = "typescript",
